@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "artillery-unit-commander"
+version = "0.1.0"
+description = ""
+authors = ["Eduard Kozachok <eduard@kozachek.net>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10.4"
+SQLAlchemy = "1.4.41"
+configparser = "^6.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
