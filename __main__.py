@@ -25,7 +25,9 @@ def main(trigger = None):
 	if trigger is None:
 		try:
 			trigger = int(input("> "))
-		except KeyboardInterrupt:
+		except ValueError:
+			trigger = None
+		except (KeyboardInterrupt, EOFError):
 			# handle ctrl+d
 			return
 
@@ -60,22 +62,22 @@ def _get_actions():
 		 },
 		 {
 		 	"trigger": 2,
-		 	"name": __("Shot"),
-		 	"callback": goals.shot
-		 },
-		 {
-		 	"trigger": 3,
 		 	"name": __("Correction"),
 		 	"callback": goals.correction
 		 },
 		 {
+		 	"trigger": 3,
+		 	"name": __("Shot"),
+		 	"callback": goals.shot
+		 },
+		 {
 		 	"trigger": 4,
-		 	"name": __("Cease fire"),
+		 	"name": __("Stop, write down"),
 		 	"callback": goals.stop
 		 },
 		 {
 		 	"trigger": 5,
-		 	"name": __("Report"),
+		 	"name": __("Show report"),
 		 	"callback": reports.report
 		 }
 		]
@@ -105,6 +107,7 @@ def _install():
 	# need to load these here to create schema
 	import app.models.Goal
 	import app.models.Correction
+	import app.models.Shot
 	database.declarative_base.metadata.create_all(database.engine)
 
 def _unknown_action():

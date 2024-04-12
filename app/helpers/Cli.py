@@ -12,15 +12,15 @@ class CLIHelper (object):
 		
 		# names row
 		print("| ", end = "")
-		for name in names:
-			column_length = column_lengths[names.index(name)]
+		for index, name in enumerate(names):
+			column_length = column_lengths[index]
 			print(f"{name:{column_length}}", end = " | ")
 		print()
 		  
 		# separator row
 		print("| ", end = "")
-		for name in names:
-			column_length = column_lengths[names.index(name)]
+		for index, name in enumerate(names):
+			column_length = column_lengths[index]
 			print("-" * column_length, end = " | ")
 		print()
 		
@@ -28,6 +28,6 @@ class CLIHelper (object):
 		for row in data:
 			print("| ", end = "")
 			for column in row:
-				column_length = column_lengths[row.index(column)]
+				column_length = column_lengths[index]
 				print(f"{column:{column_length}}", end = " | ")
 			print()
