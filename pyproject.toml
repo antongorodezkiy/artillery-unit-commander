@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "artillery-unit-commander"
 version = "0.1.0"
-description = ""
+description = "Artillery Unit Commander"
 authors = ["Eduard Kozachok <eduard@kozachek.net>"]
 license = "MIT"
 readme = "README.md"
@@ -10,6 +10,9 @@ readme = "README.md"
 python = "^3.10.4"
 SQLAlchemy = "1.4.41"
 configparser = "^6.0.0"
+pyclean = "^3.0.0"
+python-dotenv = "^1.0.1"
+argparse = "^1.4.0"
 
 [build-system]
 requires = ["poetry-core"]

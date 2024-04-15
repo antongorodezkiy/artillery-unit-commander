@@ -1,18 +1,24 @@
 from gettext import gettext as __
 from os.path import exists as path_exists
-import logging
+
+# Load environment variables from .env file, we will also add env to the config
+from dotenv import load_dotenv
 
 import app.database as database
-
 from app.commands.Goals import Goals
-goals = Goals()
-
 from app.commands.Reports import Reports
+
+# we need to import here to initialize arguments interface
+import app.args
+
+goals = Goals()
 reports = Reports()
 
 EXIT_TRIGGER = 0
 
 def main(trigger = None):
+	# dotenv
+	load_dotenv()
 
 	# actions
 	actions = _get_actions()
@@ -113,6 +119,7 @@ def _install():
 def _unknown_action():
 	print(__("Unknown action called"))
 
+# here we go
 if __name__ == "__main__":
 	# TODO: testing
 	default_action = 1
